@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Obrigado pela sua compra!</title>
+
+  <!-- Pixel do Facebook -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src='https://connect.facebook.net/en_US/fbevents.js';
+    s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script');
+
+    fbq('init', '658488130569239'); 
+    fbq('track', 'PageView');
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none"
+         src="https://www.facebook.com/tr?id=658488130569239&ev=PageView&noscript=1"/>
+  </noscript>
+  <!-- Fim do Pixel -->
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      background: white;
+      padding: 50px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      color: #2ecc71;
+    }
+
+    p {
+      font-size: 18px;
+      margin-top: 10px;
+      color: #333;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 15px 30px;
+      font-size: 18px;
+      font-weight: bold;
+      color: white;
+      background-color: #2ecc71;
+      border: none;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #27ae60;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>✅ Compra Confirmada!</h1>
+    <p>Parabéns! Sua compra de <strong>R$27,90</strong> foi processada com sucesso.</p>
+    <p>Clique no botão abaixo para acessar o <strong>Grupo VIP no Telegram</strong>.</p>
+
+    <a 
+      href="https://t.me/+oln4fJYlzYdkYWI5" 
+      class="btn"
+      id="access-button"
+    >
+      Clique aqui para acessar o grupo VIP
+    </a>
+  </div>
+
+  <script>
+    const alreadyFired = localStorage.getItem("purchase_fired");
+
+    document.getElementById("access-button").addEventListener("click", function() {
+      if (!alreadyFired) {
+        fbq('track', 'Purchase', {
+          value: 27.90,
+          currency: 'BRL'
+        });
+        localStorage.setItem("purchase_fired", "true");
+      }
+    });
+  </script>
+</body>
+</html>
